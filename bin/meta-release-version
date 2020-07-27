@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const program = require('commander');
+const chalk = require('chalk');
+const getMetaFile = require('get-meta-file');
+const metaReleaseVersion = require('../lib/meta-release-version');
+
+console.log(chalk.blueBright('Meta Release Version'));
+
+program
+  .version('0.1.0')
+  .arguments("<projectname> [projectversion]")
+  .action(function (projectname, projectversion) {
+    const metaConfig = getMetaFile();
+    if (!metaConfig) {
+      console.err('Not a Meta project');
+      process.exit(1);
+      return;
+    }
+
+    metaReleaseVersion({
+      metaDirectory: process.cwd(),
+      metaConfig,
+      projectname,
+      projectversion,
+    });
+  });
+
+program.parse(process.argv);
