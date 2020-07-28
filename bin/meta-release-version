@@ -1,28 +1,43 @@
 #!/usr/bin/env node
+/* global process */
 const program = require('commander');
 const chalk = require('chalk');
 const getMetaFile = require('get-meta-file');
-const metaReleaseVersion = require('../lib/meta-release-version');
+const metaReleaseVersion = require('../lib/release-version/meta-release-version');
 
 console.log(chalk.blueBright('Meta Release Version'));
 
 program
   .version('0.1.0')
-  .arguments("<projectname> [projectversion]")
-  .action(function (projectname, projectversion) {
+  .option('-d, --dry-run', 'Dry run the release')
+  .arguments("<projectName> [projectVersion]")
+  .action(function (projectName, projectVersion, cmdObject) {
+
     const metaConfig = getMetaFile();
     if (!metaConfig) {
-      console.err('Not a Meta project');
+      console.error(chalk.red('ERR: Not a Meta project'));
       process.exit(1);
       return;
     }
 
-    metaReleaseVersion({
+    if (cmdObject.dryRun) {
+      console.log(chalk.blueBright('DRY RUN'));
+    }
+
+    return metaReleaseVersion({
       metaDirectory: process.cwd(),
       metaConfig,
-      projectname,
-      projectversion,
+      projectName,
+      projectVersion,
+      dryRun: cmdObject.dryRun,
+    }).catch(err => {
+      if (typeof err === 'string') {
+        console.error(chalk.red(`ERR ${err}`));
+      } else {
+        console.error(chalk.red(`ERR Unexpected`));
+        console.error(err);
+      }
+      process.exit(1);
     });
   });
-
 program.parse(process.argv);

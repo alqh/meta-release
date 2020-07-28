@@ -37,8 +37,10 @@
     "git-url-parse": "^11.1.2",
     "inquirer": "^7.3.3",
     "lodash": "^4.17.4",
-    "loop": "^3.0.6",
-    "meta-exec": "^0.0.8",
-    "nodegit": "^0.26.5"
+    "nodegit": "^0.26.5",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
   }
 }
