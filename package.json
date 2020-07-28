@@ -4,7 +4,8 @@
   "description": "Manage release and publishing of versions with meta",
   "main": "index.js",
   "bin": {
-    "meta-release-version": "./bin/meta-release-version"
+    "meta-release-version": "./bin/meta-release-version",
+    "meta-release-dependent-version": "./bin/meta-release-dependent-version"
   },
   "scripts": {
     "transpile": "find bin -type f -exec node -c {} \\;",
