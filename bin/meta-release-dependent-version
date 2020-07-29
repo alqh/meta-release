@@ -10,6 +10,7 @@ console.log(chalk.blueBright('Meta Release Dependent Version'));
 program
   .version('0.1.0')
   .option('-d, --dry-run', 'Dry run the release')
+  .option('-t, --script-type <scriptType>', 'Script type to run (default is npm)')
   .arguments("<projectName> [projectVersion]")
   .action(function (projectName, projectVersion, cmdObject) {
 
@@ -30,6 +31,7 @@ program
       projectName,
       projectVersion,
       dryRun: cmdObject.dryRun,
+      scriptType: cmdObject.scriptType || 'npm',
     }).catch(err => {
       if (typeof err === 'string') {
         console.error(chalk.red(`ERR ${err}`));
