@@ -1,6 +1,6 @@
 {
   "name": "meta-release",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Manage release and publishing of versions with meta",
   "main": "index.js",
   "bin": {
