@@ -4,8 +4,9 @@ Plugin to [meta](https://github.com/mateodelnorte/meta) that will cascade publis
 ## Setup projects
 The Meta Release plugin will use the following package scripts:
 
-* `prepare-release` - Run to compile/prepare the package before publishing
-* `publish` - Run to publish the package, generally this is the standard publish command
+* `release` - Run to publish the package, generally this is the standard publish command
+
+According to npm scripts, it will do the `prerelease` and `postrelease` if exists.
 
 To install the plugin:
 ```
