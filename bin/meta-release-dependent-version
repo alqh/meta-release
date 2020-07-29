@@ -11,8 +11,8 @@ program
   .version('0.1.0')
   .option('-d, --dry-run', 'Dry run the release')
   .option('-t, --script-type <scriptType>', 'Script type to run (default is npm)')
-  .arguments("<projectName> [projectVersion]")
-  .action(function (projectName, projectVersion, cmdObject) {
+  .arguments("<dependencyName> [dependencyVersion]")
+  .action(function (dependencyName, dependencyVersion, cmdObject) {
 
     const metaConfig = getMetaFile();
     if (!metaConfig) {
@@ -28,8 +28,8 @@ program
     return metaReleaseDependentVersion({
       metaDirectory: process.cwd(),
       metaConfig,
-      projectName,
-      projectVersion,
+      projectName: dependencyName,
+      projectVersion: dependencyVersion,
       dryRun: cmdObject.dryRun,
       scriptType: cmdObject.scriptType || 'npm',
     }).catch(err => {
