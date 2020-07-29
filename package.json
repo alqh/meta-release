@@ -8,12 +8,11 @@
     "meta-release-dependent-version": "./bin/meta-release-dependent-version"
   },
   "scripts": {
-    "transpile": "find bin -type f -exec node -c {} \\;",
-    "release": "./release.sh"
+    "transpile": "find bin -type f -exec node -c {} \\; && find lib -type f -exec node -c {} \\;"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alqh/meta-release.git"
+    "url": "git@github.com:alqh/meta-release.git"
   },
   "keywords": [
     "release",
@@ -43,5 +42,8 @@
   },
   "devDependencies": {
     "eslint": "^7.5.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
