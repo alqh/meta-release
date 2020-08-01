@@ -1,7 +1,7 @@
 # Meta Release
 Plugin to [meta](https://github.com/mateodelnorte/meta) that will cascade publish meta projects.
 
-![Meta Release Build and Test Package](https://github.com/alqh/meta-release/workflows/Meta%20Release%20Build%20and%20Test%20Package/badge.svg)
+![Build](https://github.com/alqh/meta-release/workflows/Build/badge.svg)
 
 ## Setup projects
 The Meta Release plugin will use the following package scripts:
