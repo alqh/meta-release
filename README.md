@@ -35,7 +35,7 @@ This is useful if the first command fails on some projects, and you have manuall
 
 To run
 ```
-meta release-dependentVersion <projectName> [projectVersion]
+meta release-dependent-version <projectName> [projectVersion]
 ```
 
 Use the `-h` flag to see all options (including dry-run).
